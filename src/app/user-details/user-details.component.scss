@@ -1,0 +1,117 @@
+.profile-img {
+    text-align: center;
+}
+.profile-img> img {
+    border-radius: 50%;
+    width: 150px;
+}
+
+p.name {
+    color: #6c757d!important;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+p.login {
+    color: #6c757d!important;
+    font-size: 1.6rem;
+    font-weight: 300;
+    
+}
+
+p.bio {
+    color: #6c757d !important;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: start;
+}
+
+hr {
+    height: 1px;
+}
+.repo {
+    color: #6c757d !important;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-right: 15px;
+}
+
+.repo span{
+    display: inline-block;
+    padding: 0px 12px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #586069;
+    background-color: rgba(27, 31, 35, 0.08);
+    border-radius: 27px;
+}
+
+.followers {
+    color: #6c757d !important;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-right: 15px;
+}
+
+.followers  span{
+
+    display: inline-block;
+    padding: 0px 12px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #586069;
+    background-color: rgba(27, 31, 35, 0.08);
+    border-radius: 27px;
+}
+
+.following {
+    color: #6c757d !important;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-right: 15px;
+}
+
+.following span {
+    display: inline-block;
+    padding: 0px 12px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #586069;
+    background-color: rgba(27, 31, 35, 0.08);
+    border-radius: 27px;
+}
+
+
+
+.list-group > div:first-child{
+    border: unset;
+}
+
+h3.repo-name {
+    color: #0366d6;
+}
+
+.description {
+    color: #586069!important;
+}
+
+.language {
+    margin-right: 15px;
+}
+.language > span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #0c5460;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.stars {
+    margin-right: 15px;
+}
+
+
+.stars> span {
+    margin-right: 5px;
+}
+

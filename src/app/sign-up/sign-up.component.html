@@ -1,35 +1,51 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+  
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+          <div class="form-group">
+            <input class="form-control" [ngClass]="{'is-invalid':  checkUsername == true}" type="text" placeholder="Username *" formControlName="userName">
+            <div class="invalid-feedback">
+                Username is exist
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="email"  [ngClass]="{'is-invalid':  checkEmail == true}" placeholder="Email *" formControlName="email">
+            <div class="invalid-feedback">
+                email  is exist
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="password" placeholder="Password *" formControlName="password">
+            
+          </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
+          <div class="form-group">
+              <input class="form-control" type="password" placeholder="Confirm Password *"  [ngClass]="{'is-invalid':  checkPassword == true }" formControlName="confirmPassword">
+              <div class="invalid-feedback">
+                  password must be matched
+              </div>
+          </div>
 
-      <form>
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Username *">
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="email" placeholder="Email *">
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="password" placeholder="Password *">
-        </div>
-        <div class="form-group">
-          <select class="form-control">
-            <option value="">Gender *</option>
-            <option value="male">Male</option>
-            <option value="famel">Famel</option>
-          </select>
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Birth date" onfocus="(this.type='date')">
-        </div>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input">
-            <label class="custom-file-label"  data-browse="Upload" >Image</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Sigh Up</button>
-      </form>
-
+          <div class="form-group">
+            <select class="form-control" formControlName="gender">
+              <option value="Gender *" disabled>Gender*</option>
+              <option value="male">Male</option>
+              <option value="famel">Famel</option>
+            </select>
+          </div>
+          <div class="form-group">
+              <input class="form-control" type="text" placeholder="Birth date" onfocus="(this.type='date')" formControlName="birthdate">
+          </div>
+          <div class="custom-file">
+              <input type="file" class="custom-file-input" formControlName="image">
+              <label class="custom-file-label"  data-browse="Upload" >Image</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-success" style="margin-top: 20px;" [disabled]="!signUpForm.valid ||  genderControl.value == 'Gender *' ">Sigh Up</button>
+        </form>
+  
+      </div>
     </div>
-  </div>
-</div>
+  </div>  
+</section>

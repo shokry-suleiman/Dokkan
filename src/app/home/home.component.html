@@ -1,3 +1,81 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+
+
+        <form class="main">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search "  [formControl]="keyword"> 
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit"  (click)="search()"  (keyup.enter)="search()">
+                    <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="card card-default" id="card_contacts" style="margin-bottom: 50px;">
+            <div id="contacts" class="panel-collapse collapse show" aria-expanded="true" style="">
+                <ul class="list-group pull-down" id="contact-list">
+                    <li class="list-group-item" *ngFor="let user of users |  paginate: { itemsPerPage: numberOfUserPerPage, currentPage: p,  totalItems: usersCount }">
+                        <div class="row w-100" >
+                            <div class="col-12 col-sm-6 col-md-3 px-0" >
+                                <img src="{{ user?.avatar_url }}" alt="{{ user?.login }}" class="rounded-circle mx-auto d-block img-fluid" (click)="navigateUser(user)" style="max-width:100px;cursor: pointer;">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-9  text-xl-left">
+                                <label class="name lead text-capitalize" style="cursor: pointer;" (click)="navigateUser(user)" >{{ user?.login}}</label>
+                                <br>
+                                <span class="fa fa-user fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                                <span class="text-muted small">{{ user?.type}}</span>
+                                <br>
+                                <span class="fa fa-github fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                                <span class="text-muted small text-truncate"><a  class="github" href="{{ user?.html_url }}" >Github</a></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <pagination-controls (pageChange)="pageNum(p= $event)" *ngIf="!isSearch"></pagination-controls>
+        <pagination-controls (pageChange)="pageNumSearch(p= $event)" *ngIf="isSearch"></pagination-controls>
+
+        <div style="margin-bottom: 150px;"></div>
+        <!-- <nav aria-label="Page navigation example" *ngIf="!isSearch">
+            <ul class="pagination justify-content-center"> -->
+                <!-- <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+                </li> -->
+                <!-- <li  *ngFor="let page of pages; let i = index" class="page-item"  [ngClass]="{'active': page == true }" ><a class="page-link" (click)="current(i)" style="cursor: pointer;">{{ i + 1}}</a></li>
+                
+                <li class="page-item"> -->
+                <!-- <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li> -->
+            <!-- </ul>
+        </nav> -->
+
+        <!-- <nav aria-label="Page navigation example" *ngIf="isSearch">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+                </li>
+                <li  *ngFor="let page of pages; let i = index" class="page-item"  [ngClass]="{'active': page == true }" ><a class="page-link" (click)="searchCurrent(i)" style="cursor: pointer;">{{ i + 1}}</a></li>
+                
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+            </ul>
+        </nav> -->
+        
+              
+    </div>
+  </div>
+</div>

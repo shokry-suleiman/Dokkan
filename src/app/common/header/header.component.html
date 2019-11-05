@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/images/git.png" width="auto" height="50" alt="">
+    </a>
+    <ul class="nav justify-content-end" *ngIf="!currentUser">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/sign-in">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/sign-up">Register</a>
+        </li>
+      
+    </ul>
+
+    <ul class="nav justify-content-end" *ngIf="currentUser">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Log Out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+      
+    </ul>
+</nav>
