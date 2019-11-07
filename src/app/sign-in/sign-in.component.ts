@@ -20,7 +20,9 @@ export class SignInComponent implements OnInit {
   
 
   constructor( private localStorage: LocalStorageService, private authService:AuthenticationService,
-               private router: Router ) { }
+               private router: Router ) {
+                 this.users = [];
+                }
 
   ngOnInit() {
     this.users = this.localStorage.get('users');
@@ -30,12 +32,18 @@ export class SignInComponent implements OnInit {
   signIn () {
     let email = this.signInForm.value.email;
     let password = this.signInForm.value.password; 
-    this.users.map(function(user) { 
+    if( this.localStorage.get('users') != null ) {
+      this.users.map(function(user) { 
       if ( user.email ==  email && user.password == password ) {
         this.localStorage.set('currentUser', user);
+        this.authService.currentUser.next(user);
         this.router.navigate(['/home'])
       }
     }, this)
-    this.signInForm.reset();
+      this.signInForm.reset();
+    } else {
+      this.signInForm.reset(); 
+    }
+    
   }
 }

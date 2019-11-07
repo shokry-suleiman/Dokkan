@@ -18,7 +18,7 @@ export class UserDetailsComponent implements OnInit {
   inFavorities:boolean;
   constructor(private route: ActivatedRoute , private userService: UserService, 
               private localStorage:LocalStorageService, private authService: AuthenticationService ) { 
-              this.numberRepoPerPage = 5;
+              this.numberRepoPerPage = 10;
               this.currentUser = null;
               this.inFavorities = false;
   }

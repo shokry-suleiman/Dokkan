@@ -1,3 +1,72 @@
-<p>
-  profile works!
-</p>
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="profile-img">
+            <img src="assets/images/profile.png" alt="">
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+            <form [formGroup]="editForm" (ngSubmit)="save()">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input class="form-control" [ngClass]="{'is-invalid':  checkUsername == true}" type="text" placeholder="Username *" formControlName="userName">
+                  <div class="invalid-feedback">
+                      Username is exist
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input class="form-control" type="email"  [ngClass]="{'is-invalid':  checkEmail == true}" placeholder="Email *" formControlName="email">
+                  <div class="invalid-feedback">
+                      Email  is exist
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="currentPassword">Current Password</label>
+                  <input class="form-control"  type="password" [ngClass]="{'is-invalid':  checkCurrentPassword == true}" placeholder="Current Password" formControlName="currentpassword">
+                  <div class="invalid-feedback">
+                      Password is wrong
+                  </div>
+                </div>
+      
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input class="form-control" type="password" placeholder="Confirm Password *"  formControlName="password">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="confirmNewPassword">Confirm New Password</label>
+                    <input class="form-control" type="password" placeholder="Confirm New Password *"  [ngClass]="{'is-invalid':  checkPassword == true }" formControlName="confirmPassword">
+                    <div class="invalid-feedback">
+                        password must be matched
+                    </div>
+                </div>
+      
+                <div class="form-group">
+                  <label for="Gender">Gender</label>
+                  <select class="form-control" formControlName="gender">
+                    <option value="Gender *" disabled>Gender*</option>
+                    <option value="male">Male</option>
+                    <option value="famel">Famel</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Birthdate</label>
+                    <input class="form-control" type="text" placeholder="Birth date" onfocus="(this.type='date')" formControlName="birthdate">
+                </div>
+                <div class="custom-file" style="margin-top: 15px;">
+                    <input type="file" class="custom-file-input" formControlName="image">
+                    <label class="custom-file-label"  data-browse="Upload" >Profile Picture</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-danger float-right" style="margin-top: 20px;" (click)="cancel()">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-dark float-right" style="margin-top: 20px;margin-right: 15px;" [disabled]="!editForm.valid ">Save</button>
+
+              </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  

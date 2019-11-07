@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {  Router } from '@angular/router';
 
 import { LocalStorageService } from '../services/local-storage.service'
-
-import {  Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service'
 
 
 @Component({
@@ -27,7 +26,8 @@ export class SignUpComponent implements OnInit {
   checkUsername:boolean;
   checkEmail:boolean;
   checkPassword: boolean;
-  constructor(private localStorage :LocalStorageService, private router: Router) { 
+  constructor(private localStorage :LocalStorageService, private router: Router,
+              private authService: AuthenticationService) { 
     this.checkEmail = false;
     this.checkPassword= false;
     this.checkUsername = false;
@@ -62,18 +62,18 @@ export class SignUpComponent implements OnInit {
         
       }
       
-      // this.
+      
       arr.push(this.signUpForm.value);
       this.localStorage.set('currentUser', this.signUpForm.value);
       this.localStorage.set('users',arr);
-      
+      this.authService.currentUser.next(this.signUpForm.value)
       this.router.navigate(['/home']);
 
     } else {
-      console.log("shokry")
      arr.push(this.signUpForm.value);
      this.localStorage.set('currentUser', this.signUpForm.value);
      this.localStorage.set('users',arr);
+     this.authService.currentUser.next(this.signUpForm.value)
      this.router.navigate(['/home']);
     }
   }

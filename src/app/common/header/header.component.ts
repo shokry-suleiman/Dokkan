@@ -22,5 +22,9 @@ export class HeaderComponent implements OnInit {
       this.currentUser = data;
     })
   }
+  logOut() {
+    this.localStorage.set('currentUser',null);
+    this.authService.currentUser.next(null);
+  }
 
 }

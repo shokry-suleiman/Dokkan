@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
-import { UserService } from '../services/user.service';
-
-
 import {  Router } from '@angular/router';
 
-
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -28,7 +24,7 @@ export class HomeComponent implements OnInit {
   constructor( private userService: UserService, private router: Router ) { 
     this.pages = [];
     this.lastIdSeen = 1;
-    this.numberOfUserPerPage = 5;
+    this.numberOfUserPerPage = 10;
     this.lastPage=0;
     this.isSearch = false;
   }

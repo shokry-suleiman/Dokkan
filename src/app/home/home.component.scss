@@ -1,17 +1,11 @@
-/* Styles for wrapping the search box */
-
 .main {
     width: 100%;
     margin: 50px auto;
 }
-
-/* Bootstrap 4 text input with search icon */
-
 .form-control {
     padding-left: 2.375rem;
     height: calc(1.5em + .75rem + 20px);
 }
-
 .has-search .form-control-feedback {
     position: absolute;
     z-index: 2;
@@ -21,27 +15,25 @@
     line-height: 3.67rem;
     text-align: center;
     pointer-events: none;
-    color: #aaa;
-    
+    color: #aaa;    
 }
-
 .btn {
 
     font-size: 18px;
-    padding: 0.375rem 1.5rem
-}
+    padding: 0.375rem 1.5rem;
+    background: black;
+    border-color: black;
 
+}
 .github {
     color:#6c757d;
 }
-
 .github:hover {
     text-decoration: unset;
 }
 .col-md-3 {
     max-width: 15%;
 }
-
 pagination-controls{
     text-align: center;
 }
