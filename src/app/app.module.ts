@@ -17,7 +17,9 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
-
+import { FavoritesComponent } from './favorites/favorites.component';
+import { DndListModule } from 'ngx-drag-and-drop-lists';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { FooterComponent } from './common/footer/footer.component';
     HomeComponent,
     UserDetailsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FavoritesComponent,
+    ProfileComponent
   ],
   imports: [
    
@@ -39,7 +43,8 @@ import { FooterComponent } from './common/footer/footer.component';
     ReactiveFormsModule,
     CommonModule,
     NgxPaginationModule,
-    StorageServiceModule
+    StorageServiceModule,
+    DndListModule
     
   ],
   providers: [],

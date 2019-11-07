@@ -56,25 +56,25 @@ export class UserDetailsComponent implements OnInit {
 
   addToFavorite() {
     this.inFavorities = true;
-    if ( this.localStorage.get('favorities') == null ) {
+    if ( this.localStorage.get('favorites') == null ) {
         let fav = [];
         fav.push({ 'login' : this.user.login, 'avatar_url': this.user.avatar_url , 'type': this.user.type , 'html_url': this.user.html_url  })
-        this.localStorage.set('favorities', fav)
+        this.localStorage.set('favorites', fav)
        
     } else {
-      let fav = this.localStorage.get('favorities');
+      let fav = this.localStorage.get('favorites');
       fav.push({ 'login' : this.user.login, 'avatar_url': this.user.avatar_url , 'type': this.user.type , 'html_url': this.user.html_url  })
-      this.localStorage.set('favorities', fav)
+      this.localStorage.set('favorites', fav)
     }
   }
 
   checkFavorities() {
     
-    if ( this.localStorage.get('favorities') == null ) {
+    if ( this.localStorage.get('favorites') == null ) {
         this.inFavorities = false;
     
     } else {
-      let fav = this.localStorage.get('favorities');
+      let fav = this.localStorage.get('favorites');
       fav.map(function(user) { 
       if ( user.login ==  this.user.login ) {
         this.inFavorities = true;

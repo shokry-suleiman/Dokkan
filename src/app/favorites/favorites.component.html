@@ -1,0 +1,75 @@
+<section>
+    <div class="container">
+        <div class="dndPlaceholder col-lg-12"
+          #placeholder></div>
+        
+    
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-default" id="card_contacts" style="margin-bottom: 50px;">
+                    <div id="contacts" class="panel-collapse collapse show" aria-expanded="true" style="">
+                        <ul class="list-group pull-down" id="contact-list" [dndList] [dndPlaceholder]="placeholder" [dndModel]="favorites">
+                            <li class="list-group-item" *ngFor="let item of favorites" [dndType]="'item'" (dndMoved)="moveItem(item, favorites)" [dndDraggable] [dndObject]="item">
+                                <div class="row w-100" >
+                                    <div class="col-12 col-sm-6 col-md-3 px-0" >
+                                        <img src="{{ item?.avatar_url }}" alt="{{ item?.login }}" class="rounded-circle mx-auto d-block img-fluid" (click)="navigateUser(item)" style="max-width:100px;cursor: pointer;">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-8  text-xl-left">
+                                        <label class="name lead text-capitalize" style="cursor: pointer;" (click)="navigateUser(item)" >{{ item?.login}}</label>
+                                        <br>
+                                        <span class="fa fa-user fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                                        <span class="text-muted small">{{ item?.type}}</span>
+                                        <br>
+                                        <span class="fa fa-github fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                                        <span class="text-muted small text-truncate"><a  class="github" href="{{ item?.html_url }}" >Github</a></span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-1 text-xl-right">
+                                        <label class="name lead text-capitalize" style="cursor: pointer;" (click)="navigateUser(item)" ></label>
+                                        <br>
+                                        <span class="fa fa-trash" (click)="delete(item, favorites)"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          <!-- <div class="col-lg-12"
+            [dndList]
+            [dndPlaceholder]="placeholder"
+            [dndModel]="favorites">
+            <div *ngFor="let item of favorites"
+              class="col-md-12"
+              [dndType]="'item'"
+              (dndMoved)="removeItem(item, favorites)"
+              [dndDraggable]
+              [dndObject]="item">{{item.login}}</div>
+          </div> -->
+        
+        </div>
+      
+      </div>
+</section>
+
+<!-- <div class="card card-default" id="card_contacts" style="margin-bottom: 50px;">
+    <div id="contacts" class="panel-collapse collapse show" aria-expanded="true" style="">
+        <ul class="list-group pull-down" id="contact-list">
+            <li class="list-group-item" *ngFor="let user of users |  paginate: { itemsPerPage: numberOfUserPerPage, currentPage: p,  totalItems: usersCount }">
+                <div class="row w-100" >
+                    <div class="col-12 col-sm-6 col-md-3 px-0" >
+                        <img src="{{ user?.avatar_url }}" alt="{{ user?.login }}" class="rounded-circle mx-auto d-block img-fluid" (click)="navigateUser(user)" style="max-width:100px;cursor: pointer;">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-9  text-xl-left">
+                        <label class="name lead text-capitalize" style="cursor: pointer;" (click)="navigateUser(user)" >{{ user?.login}}</label>
+                        <br>
+                        <span class="fa fa-user fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                        <span class="text-muted small">{{ user?.type}}</span>
+                        <br>
+                        <span class="fa fa-github fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+                        <span class="text-muted small text-truncate"><a  class="github" href="{{ user?.html_url }}" >Github</a></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div> -->
