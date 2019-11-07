@@ -5,11 +5,12 @@ import { Subject } from 'rxjs'
 })
 export class AuthenticationService {
   
-  public currentUser = new Subject<boolean>();
+  public currentUser = new Subject<any>();
 
   constructor() { 
 
   }
 
+  
 
 }

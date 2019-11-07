@@ -1,44 +1,48 @@
-<div class="container">
+<section>
+  <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="profile-img">
-          <img src="{{ user?.avatar_url }}" alt="" >
-          <P class="name">{{ user?.name }}</P>
+          <img src="{{ user?.avatar_url }}" alt="">
+          <P class="name">{{ user?.name }} 
+            <span *ngIf="currentUser">
+                <span class="fa fa-star favorite" *ngIf="!inFavorities"  (click)="addToFavorite()" data-toggle="tooltip" data-placement="top" title="Add to favorites"></span>
+                <span class="fa fa-star in-favorite"  *ngIf="inFavorities"   data-toggle="tooltip" data-placement="top" title="User in favorites"></span>
+
+            </span>
+          </P>
           <p class="login">{{ user?.login }}</p>
         </div>
-        
+
         <p class="bio"> {{ user?.bio }}</p>
         <span class="fa fa-external-link  text-muted"></span>
         <a href="{{ user?.blog}}" class="blog"> {{ user?.blog}} </a>
         <br>
         <hr>
-      
-        <span class="repo">  Repositories <span> {{ user?.public_repos }} </span></span>
+
+        <span class="repo"> Repositories <span> {{ user?.public_repos }} </span></span>
         <span class="followers"> Followers <span> {{ user?.followers }} </span></span>
         <span class="following"> Following <span> {{ user?.following }} </span></span>
 
         <div class="list-group list-group-flush">
-            <div class="list-group-item  " *ngFor="let repo of userRepos |  paginate: { itemsPerPage: numberRepoPerPage, currentPage: p,  totalItems: reposCount }">
-              <div class="d-flex w-100 justify-content-between">
-                <h3 class="mb-1 repo-name">{{ repo?.name }}</h3>
-              </div>
-              <p class="mb-2 description" >{{ repo?.description }}</p>
-              <br>
-              <span class="language"> <span></span>{{ repo?.language }}</span>
-              <span class="stars"> <span class="fa fa-star"></span>{{ repo?.stargazers_count }}</span>
-              <span> {{ repo?.pushed_at | date}} </span>
-              
-              
+          <div class="list-group-item  "
+            *ngFor="let repo of userRepos |  paginate: { itemsPerPage: numberRepoPerPage, currentPage: p,  totalItems: reposCount }">
+            <div class="d-flex w-100 justify-content-between">
+              <h3 class="mb-1 repo-name">{{ repo?.name }}</h3>
             </div>
-            <pagination-controls (pageChange)="pageNum(p= $event)" ></pagination-controls>
+            <p class="mb-2 description">{{ repo?.description }}</p>
+            <br>
+            <span class="language"> <span></span>{{ repo?.language }}</span>
+            <span class="stars"> <span class="fa fa-star"></span>{{ repo?.stargazers_count }}</span>
+            <span> {{ repo?.pushed_at | date}} </span>
 
           </div>
+        </div>
+        <pagination-controls (pageChange)="pageNum(p= $event)"></pagination-controls>
       </div>
-
-     
     </div>
-</div>
-
+  </div>
+</section>
 
 
 <!-- public_repos: 107,

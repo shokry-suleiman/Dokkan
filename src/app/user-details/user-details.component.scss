@@ -1,3 +1,6 @@
+section {
+    margin: 100px auto;
+}
 .profile-img {
     text-align: center;
 }
@@ -81,7 +84,9 @@ hr {
     border-radius: 27px;
 }
 
-
+.list-group {
+    margin-bottom: 100px;
+}
 
 .list-group > div:first-child{
     border: unset;
@@ -115,3 +120,15 @@ h3.repo-name {
     margin-right: 5px;
 }
 
+pagination-controls{
+    text-align: center;
+}
+
+.favorite:hover {
+    color: #ffde2d;
+    cursor: pointer;
+}
+
+.in-favorite {
+    color: #ffde2d;   
+}

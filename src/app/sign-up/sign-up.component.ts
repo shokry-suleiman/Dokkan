@@ -62,7 +62,7 @@ export class SignUpComponent implements OnInit {
         
       }
       
-      this.
+      // this.
       arr.push(this.signUpForm.value);
       this.localStorage.set('currentUser', this.signUpForm.value);
       this.localStorage.set('users',arr);
