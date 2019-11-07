@@ -5,9 +5,9 @@
 
             <form class="main">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search " [formControl]="keyword">
+                    <input type="text" class="form-control" placeholder="Search "  (input)="clearSearch($event)" [formControl]="keyword">
                     <div class="input-group-append">
-                        <button class="btn " type="submit" (click)="search()" (keyup.enter)="search()">
+                        <button class="btn " type="submit" (click)="search()" (keyup.enter)="search()" >
                             <i class="fa fa-search" style="color: #f8f9fa;"></i>
                         </button>
                     </div>

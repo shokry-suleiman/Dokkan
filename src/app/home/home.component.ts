@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
     this.numberOfUserPerPage = 10;
     this.lastPage=0;
     this.isSearch = false;
+      this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+  };
+
   }
 
   ngOnInit() {
@@ -91,5 +95,12 @@ export class HomeComponent implements OnInit {
     this.userService.search(this.keyword.value, this.numberOfUserPerPage,currentPage).subscribe( (data:any) => {
     this.users = data.items;
     })
+  }
+
+  clearSearch(data) {
+    console.log("Data", data.target.value);
+    if ( data.target.value == '')
+      this.router.navigate(['/home']);
+    
   }
 }
