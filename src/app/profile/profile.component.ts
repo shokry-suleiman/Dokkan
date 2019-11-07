@@ -58,22 +58,17 @@ export class ProfileComponent implements OnInit {
       return;
     }
 
-    if ( this.editForm.value.password.length == 0 ) {
-              user = {"userName": this.editForm.value.userName ,"email": this.editForm.value.email,"password": this.currentUser.password,"confirmPassword": this.currentUser.confirmPassword ,"gender":  this.editForm.value.gender,"birthdate":this.editForm.value.birthdate,"image": this.editForm.value.image }
-              console.log("here first")
-    }
-    else {
-        user = {"userName": this.editForm.value.userName ,"email": this.editForm.value.email,"password": this.editForm.value.password,"confirmPassword": this.editForm.value.confirmPassword ,"gender":  this.editForm.value.gender,"birthdate":this.editForm.value.birthdate,"image": this.editForm.value.image }
-        console.log("here")
-    }
-
-
-    console.log("user", user)
-    // allUsers = this.localStorage.get('users');
-    // allUsers[allUsers.map(function(user) { return user.email; }).indexOf(this.currentUser.email)] = user;
-    // this.localStorage.set('users', allUsers);
-    // this.localStorage.set('currentUser', user);
-    // this.router.navigate(['/home'])
+    if ( this.editForm.value.password.length == 0 ) 
+      user = {"userName": this.editForm.value.userName ,"email": this.editForm.value.email,"password": this.currentUser.password,"confirmPassword": this.currentUser.confirmPassword ,"gender":  this.editForm.value.gender,"birthdate":this.editForm.value.birthdate,"image": this.editForm.value.image }
+    else 
+      user = {"userName": this.editForm.value.userName ,"email": this.editForm.value.email,"password": this.editForm.value.password,"confirmPassword": this.editForm.value.confirmPassword ,"gender":  this.editForm.value.gender,"birthdate":this.editForm.value.birthdate,"image": this.editForm.value.image }
+  
+   
+    allUsers = this.localStorage.get('users');
+    allUsers[allUsers.map(function(user) { return user.email; }).indexOf(this.currentUser.email)] = user;
+    this.localStorage.set('users', allUsers);
+    this.localStorage.set('currentUser', user);
+    this.router.navigate(['/home'])
   }
 
   cancel() {
